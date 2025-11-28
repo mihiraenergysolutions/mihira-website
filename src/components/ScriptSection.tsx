@@ -1,5 +1,5 @@
 import React from 'react';
-import { Zap, TrendingUp, Wallet, CheckCircle } from 'lucide-react';
+import { Zap, Wallet, CheckCircle } from 'lucide-react';
 
 const ScriptSection: React.FC = () => {
   return (

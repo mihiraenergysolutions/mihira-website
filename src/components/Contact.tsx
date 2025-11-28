@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { MapPin, Globe, Mail, Send, User, Phone, Map } from 'lucide-react';
+import { MapPin, Mail, Send, User, Phone, Map } from 'lucide-react';
 import "./style.css"
+
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -15,36 +16,36 @@ const Contact: React.FC = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    // e.currentTarget is strongly typed as HTMLFormElement because of the generic above
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-
-    // Prefer an env var or server-side proxy for the access key.
-    // If using Next.js you might use NEXT_PUBLIC_... for non-secret keys,
-    // but ideally call your own backend so keys are not exposed.
-    formData.append("access_key", process.env.GEMINI_API_KEY);
+  
+    const form = e.currentTarget as HTMLFormElement; // <-- FIX HERE
+    const payload = new FormData(form);
+  
+    const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+  
+    payload.append("access_key", apiKey);
+  
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        body: formData
+        body: payload
       });
-
+  
       const data = await response.json();
-
+  
       if (data.success) {
-        form.reset(); // safe because form is HTMLFormElement
-        alert('Thank you for the enquiry! We will contact you soon.');
+        form.reset(); // <-- NOW VALID
+        alert("Thank you for the enquiry! We will contact you soon.");
       } else {
-        alert('Oh oh!! there is an error. Please try again later');
+        alert("Oh oh!! there is an error. Please try again later");
       }
     } catch (err) {
-      alert('Oh oh!! there is an error. Please try again later');
+      alert("Oh oh!! there is an error. Please try again later");
       console.error("Network or fetch error", err);
     }
   };
+  
 
   return (
     <section id="contact" className="scroll-mt-24 py-20 bg-mihira-blue text-white relative overflow-hidden">
