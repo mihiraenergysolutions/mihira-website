@@ -63,11 +63,11 @@ const Footer: React.FC = () => {
              <FooterLogo className="h-24 w-auto" />
           </div>
 
-          <div className="flex space-x-6 text-sm">
+          {/* <div className="flex space-x-6 text-sm">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
             <a href="#" className="hover:text-white transition-colors">Contact</a>
-          </div>
+          </div> */}
         </div>
         
         <div className="mt-8 border-t border-gray-700 pt-8 text-center text-xs">
