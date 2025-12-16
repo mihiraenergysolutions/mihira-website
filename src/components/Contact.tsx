@@ -182,7 +182,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-white">Hyderabad</h3>
-                  <p className="mt-1 text-gray-300 leading-relaxed">A509, Hallmark Vicinia, Narsingi,<br />Hyderabad</p>
+                  <p className="mt-1 text-gray-300 leading-relaxed">5th floor, Sri Nilayam, Kavuri Hills, Madhapur<br />Hyderabad</p>
                 </div>
               </div>
 
