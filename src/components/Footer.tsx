@@ -71,7 +71,7 @@ const Footer: React.FC = () => {
         </div>
         
         <div className="mt-8 border-t border-gray-700 pt-8 text-center text-xs">
-          <p>&copy; {new Date().getFullYear()} Mihira Energy Solutions. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Mihira Energy Solutions. All rights reserved by Mihira Energy Solutions.</p>
         </div>
       </div>
     </footer>
